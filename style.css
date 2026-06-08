@@ -6,12 +6,39 @@
 
 body {
     font-family: 'Poppins', 'Segoe UI', system-ui, 'Khmer OS', 'Moul', sans-serif;
-    background: linear-gradient(145deg, #1a0b2e 0%, #2a1a4a 100%);
+    /* Background ថ្មី gradient ពណ៌ខៀវទឹកសមុទ្រ -> ស្វាយភ្លឺ */
+    background: linear-gradient(145deg, #0a2f6c 0%, #1e1a5e 40%, #311b55 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px 20px;
+    position: relative;
+}
+
+/* បន្ថែមពន្លឺរង្វង់មូលពីក្រោយ (decorative) */
+body::before {
+    content: "";
+    position: fixed;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 200, 100, 0.15), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -10%;
+    right: -10%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 80% 90%, rgba(0, 255, 255, 0.1), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .container {
@@ -20,41 +47,42 @@ body {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    position: relative;
+    z-index: 2;
 }
 
 /* Main Countdown Card */
 .countdown-card {
-    background: rgba(255, 248, 225, 0.98);
+    background: rgba(255, 248, 235, 0.96);
     border-radius: 48px;
     padding: 2rem 1.8rem;
-    box-shadow: 0 30px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 215, 0, 0.2);
+    box-shadow: 0 30px 45px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 220, 150, 0.5);
     text-align: center;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
     transition: all 0.3s ease;
 }
 
 h1 {
     font-size: 2.2rem;
-    background: linear-gradient(135deg, #c33764, #b84e8f);
+    background: linear-gradient(135deg, #c33764, #3c2b8f);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     margin-bottom: 0.6rem;
     font-weight: 800;
-    letter-spacing: -0.5px;
 }
 
 .target-date {
     font-size: 1.3rem;
     font-weight: bold;
-    color: #ff8c42;
-    background: #2a1f3d;
+    color: #ffbc6e;
+    background: #1f1a3e;
     display: inline-block;
     padding: 0.5rem 1.5rem;
     border-radius: 60px;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: 1px solid #ffb347;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border: 1px solid #ffaa44;
 }
 
 .countdown-grid {
@@ -66,18 +94,19 @@ h1 {
 }
 
 .time-box {
-    background: linear-gradient(145deg, #ff9a3c, #ff6f3c);
+    background: linear-gradient(145deg, #ff9142, #ff5e3a);
     border-radius: 32px;
     padding: 1.4rem 0.5rem;
     flex: 1;
     min-width: 75px;
     color: white;
-    box-shadow: 0 12px 18px rgba(0,0,0,0.25);
-    transition: transform 0.2s;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .time-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 28px rgba(0,0,0,0.4);
 }
 
 .time-number {
@@ -86,7 +115,7 @@ h1 {
     font-weight: 800;
     line-height: 1.2;
     font-family: 'Courier New', monospace;
-    text-shadow: 2px 2px 0 #b83b00;
+    text-shadow: 2px 2px 0 #b83200;
 }
 
 .time-label {
@@ -94,7 +123,7 @@ h1 {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.25);
     display: inline-block;
     padding: 4px 12px;
     border-radius: 40px;
@@ -105,43 +134,42 @@ h1 {
     font-weight: bold;
     padding: 0.8rem;
     border-radius: 60px;
-    background: #fcee9f;
-    color: #b4452c;
+    background: #fff0cf;
+    color: #bc4e2c;
     margin-top: 0.5rem;
-    border-left: 6px solid #ff7b2c;
+    border-left: 6px solid #ff7340;
 }
 
 .note {
     margin-top: 1.5rem;
     font-size: 0.85rem;
-    color: #4a3b2c;
-    background: #ffe3b5;
+    color: #4a3727;
+    background: #ffe0b5;
     display: inline-block;
     padding: 0.4rem 1.2rem;
     border-radius: 30px;
     font-weight: 500;
 }
 
-/* Owner Card - ដាក់ដាច់ពីគ្នាស្អាត */
+/* Owner Card -  ថ្លា + ឆើតឆាយ */
 .owner-card {
-    background: rgba(10, 5, 25, 0.85);
+    background: rgba(15, 10, 35, 0.75);
     backdrop-filter: blur(12px);
     border-radius: 40px;
     padding: 1.2rem 1.8rem;
     text-align: center;
-    border: 1px solid rgba(255, 200, 100, 0.5);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
-    transition: 0.2s;
+    border: 1px solid rgba(255, 200, 100, 0.6);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
 }
 
 .owner-label {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #ffd966;
+    color: #ffdf8c;
     letter-spacing: 1px;
     margin-bottom: 12px;
     display: inline-block;
-    background: #00000055;
+    background: #00000066;
     padding: 4px 20px;
     border-radius: 30px;
 }
@@ -157,46 +185,46 @@ h1 {
 .social-link {
     text-decoration: none;
     font-weight: 600;
-    padding: 10px 22px;
-    border-radius: 50px;
-    transition: 0.2s;
+    padding: 10px 24px;
+    border-radius: 60px;
+    transition: 0.25s;
     font-size: 1rem;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: #1f1a2e;
+    gap: 10px;
+    background: #0a0820;
     border: 1px solid;
 }
 
 .social-link.facebook {
-    color: #3b82f6;
-    border-color: #3b82f6;
-    background: #0a0a2a;
+    color: #4f8eff;
+    border-color: #4f8eff;
 }
 .social-link.facebook:hover {
-    background: #3b82f6;
+    background: #4f8eff;
     color: white;
-    transform: scale(1.02);
+    transform: scale(1.03);
+    box-shadow: 0 6px 14px #4f8eff66;
 }
 
 .social-link.telegram {
-    color: #2ca5e0;
-    border-color: #2ca5e0;
-    background: #0a0a2a;
+    color: #3dc2f0;
+    border-color: #3dc2f0;
 }
 .social-link.telegram:hover {
-    background: #2ca5e0;
+    background: #3dc2f0;
     color: white;
-    transform: scale(1.02);
+    transform: scale(1.03);
+    box-shadow: 0 6px 14px #3dc2f066;
 }
 
 .owner-motto {
     margin-top: 12px;
     font-style: italic;
-    color: #ffbc6e;
+    color: #ffcf8a;
     font-size: 0.9rem;
     font-weight: 500;
-    letter-spacing: 1px;
+    text-shadow: 0 1px 2px black;
 }
 
 /* responsive */
@@ -211,7 +239,7 @@ h1 {
         font-size: 1.6rem;
     }
     .social-link {
-        padding: 6px 16px;
-        font-size: 0.85rem;
+        padding: 6px 18px;
+        font-size: 0.8rem;
     }
 }
